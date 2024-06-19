@@ -7,7 +7,7 @@
 			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 			name="viewport"
 		/>
-		<title>Upload</title>
+		<title>图床</title>
 		<!-- Bootstrap CSS -->
 		<link
 			href="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css"
@@ -47,19 +47,7 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link" href="/">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="./mt.html">meituan</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="./tencent.html">tencent</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" href="./weixinyanxuan.html">weixinyanxuan</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="./about.html">About</a>
+							<a class="nav-link active" href="/upload.html">Home</a>
 						</li>
 					</ul>
 				</div>
@@ -67,10 +55,11 @@
 		</nav>
 		<div class="container kv-main">
 			<div class="page-header">
-				<h1>文件上传</h1>
-				&nbsp;每次最多&nbsp;100&nbsp;个文件。 本站已托管&nbsp;
+				<h1>图片或视频上传</h1>
+				&nbsp;每个文件最大&nbsp;5&nbsp;MB。每个请求最多&nbsp;100&nbsp;个文件。
+				本站已托管&nbsp;
 				<span class="total" id="total"></span>
-				&nbsp;文件; 你访问本站的IP是：
+				&nbsp;张图片; 你访问本站的IP是：
 				<span class="total" id="ipinfo"></span>
 				&nbsp;
 			</div>
@@ -84,13 +73,13 @@
 						data-overwrite-initial="false"
 						data-min-file-count="1"
 						name="file"
+						accept="image/*, video/*"
 					/>
 				</div>
 			</form>
 			<form id="upload_option" enctype="multipart/form-data"></form>
 			<div id="showurl" style="display: none; margin-top: 5px">
 				<button id="copyAllButton" class="btn btn-primary copyAllButton">一键复制</button>
-
 				<ul class="nav nav-tabs" id="navTab" role="tablist">
 					<li class="nav-item" role="presentation">
 						<button
@@ -222,6 +211,7 @@
 		<div id="lightbox-overlay" class="lightbox-overlay">
 			<img id="lightbox-image" class="lightbox-image" src="" />
 		</div>
+
 		<script id="image-template" type="text/x-handlebars-template">
 			<tr>
 				<td class='image-code-cover'>
@@ -235,7 +225,6 @@
 				<td>
 					<!-- <div class="dlinput_header">URL</div> -->
 					<div class='dlinput_container'>
-						<div style='margin-top: 5px;'></div>
 						<input
 							class='cpurl form-control'
 							type='text'
@@ -247,10 +236,15 @@
 							class='form-control'
 							type='text'
 							onclick='this.select();'
-							value='{{codewave}}'
+							value='{{wp}}'
 						/>
-						<!--<div style="margin-top: 5px;"></div>
-                    <input class="form-control" type="text" onclick="this.select();" value="{{raw}}"> -->
+						<div style='margin-top: 5px;'></div>
+						<input
+							class='form-control'
+							type='text'
+							onclick='this.select();'
+							value='{{raw}}'
+						/>
 					</div>
 				</td>
 				<!-- <td style="width:260px;" class="advert"></td> -->
@@ -280,6 +274,7 @@
 		<script src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
 
 		<script src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
-		<script src="./asset/js/weixinyanxuan.js"></script>
+
+		<script src="./asset/js/upload.js"></script>
 	</body>
 </html>
